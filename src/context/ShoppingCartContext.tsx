@@ -23,7 +23,7 @@ type ShoppingCartContext = {
 
 }
 
-const ShoppingCartContext =  createContext({}) 
+const ShoppingCartContext =  createContext({} as ShoppingCartContext) 
 
 export function useShoppingCart(){
     return useContext(ShoppingCartContext)
@@ -33,7 +33,6 @@ export function useShoppingCart(){
 // implements the provider portion, providing all thevalues i need
 export function ShoppingCartProvider( { children }: ShoppingCartProviderProps){
     const [isOpen, setIsOpen] = useState(false)
-    const [isClose, setIsClose] = useState(true)
     const [cartItems, setCartItems] = useLocalStorage<CartItem[]>('shopping-cart', [])
 
     const cartQuantity = cartItems.reduce((sum, value) => sum + value.quantity, 0)
@@ -93,7 +92,8 @@ export function ShoppingCartProvider( { children }: ShoppingCartProviderProps){
                     increaseCartQuantity, 
                     decreaseCartQuantity, 
                     removeFromCart,
-                    openCart, closeCart,
+                    openCart,
+                    closeCart,
                     cartItems,
                     cartQuantity
                     }}>
