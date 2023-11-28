@@ -1,6 +1,6 @@
 
 
-import { formatCurrency } from "../utilities/formatCurrency";
+import { formatCurrency } from "../../utilities/formatCurrency";
 
 
 describe('USD currency converter', () => {

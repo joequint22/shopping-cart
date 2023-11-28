@@ -2,7 +2,7 @@ import { ReactNode, createContext, useContext, useState } from "react"
 import { ShoppingCart } from "../components/ShoppingCart"
 import { useLocalStorage } from "../hooks/useLocalStorage"
 
-type ShoppingCartProviderProps = {
+export type ShoppingCartProviderProps = {
     children: ReactNode
 }
 
@@ -11,7 +11,7 @@ type CartItem = {
     quantity: number
 }
 
-type ShoppingCartContext = {
+export type TShoppingCartContext = {
     openCart: () => void
     closeCart: () => void 
     getItemQuantity: (id: number) => number
@@ -23,7 +23,7 @@ type ShoppingCartContext = {
 
 }
 
-const ShoppingCartContext =  createContext({} as ShoppingCartContext) 
+const ShoppingCartContext =  createContext({} as TShoppingCartContext) 
 
 export function useShoppingCart(){
     return useContext(ShoppingCartContext)
